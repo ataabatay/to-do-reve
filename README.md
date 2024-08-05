@@ -10,7 +10,7 @@ Reve is a solo 1day side project to work on creating a front-end only single pag
 We all hate convoluted to do apps, the idea is to create a super simplistic/minimalistic to do app in React.
 
 ## Deployment Link
-Visit [link to come]
+Visit [https://to-do-reve.vercel.app/]
 
 ## Technologies Used
 React for frontend with Tailwind for design
@@ -58,4 +58,3 @@ React for frontend with Tailwind for design
 - Component-designwise I believe the app could have potentially been better structured
 - There's a clear room to use context (Redux, etc.) but I didn't know at the time of completing this project
 - Other versions haven't been attempted just yet.
->>>>>>> de6c33cb29a2a93678f61d7028d0a487de849fc4
