@@ -1,53 +1,21 @@
-import TextTruncate from 'react-text-truncate';
-import { CircleMarker } from '../assets/Icons';
+import SingleToDoItem from './SingleToDoItem';
 
-export default function ActiveToDoListView() {
+export default function ActiveToDoListView({ toDos, setToDos }) {
   return (
-    <section className="to-do-list-view flex flex-col gap-8 text-2xl w-2/4">
-      <div className="single-to-do flex gap-4 items-center">
-        <div className="bullet-marker">
-          <CircleMarker color={'white'} />
-        </div>
-        <TextTruncate
-          line={1}
-          element="span"
-          truncateText="..."
-          text="Lorem ipsum dolor sit amet consectetur adipisicing elit. At corporis eius perspiciatis atque nulla dignissimos aperiam asperiores sequi, sed est nam, itaque enim aliquid explicabo, commodi aut totam fugiat nemo."
-        />
-      </div>
-      <div className="single-to-do flex gap-4 items-center">
-        <div className="bullet-marker">
-          <CircleMarker color={'white'} />
-        </div>
-        <TextTruncate
-          line={1}
-          element="span"
-          truncateText="..."
-          text="Lorem ipsum dolor sit amet consectetur adipisicing elit. At corporis eius perspiciatis atque nulla dignissimos aperiam asperiores sequi, sed est nam, itaque enim aliquid explicabo, commodi aut totam fugiat nemo."
-        />
-      </div>
-      <div className="single-to-do flex gap-4 items-center">
-        <div className="bullet-marker">
-          <CircleMarker color={'white'} />
-        </div>
-        <TextTruncate
-          line={1}
-          element="span"
-          truncateText="..."
-          text="Lorem ipsum dolor sit amet consectetur adipisicing elit. At corporis eius perspiciatis atque nulla dignissimos aperiam asperiores sequi, sed est nam, itaque enim aliquid explicabo, commodi aut totam fugiat nemo."
-        />
-      </div>
-      <div className="single-to-do flex gap-4 items-center">
-        <div className="bullet-marker">
-          <CircleMarker color={'white'} />
-        </div>
-        <TextTruncate
-          line={1}
-          element="span"
-          truncateText="..."
-          text="Lorem ipsum dolor sit amet consectetur adipisicing elit. At corporis eius perspiciatis atque nulla dignissimos aperiam asperiores sequi, sed est nam, itaque enim aliquid explicabo, commodi aut totam fugiat nemo."
-        />
-      </div>
+    <section className="to-do-list-view flex flex-col-reverse text-2xl w-3/4">
+      {toDos
+        .filter((toDo) => toDo.status === 'active')
+        .map((toDo, index) => (
+          <SingleToDoItem
+            key={toDo.id}
+            id={toDo.id}
+            color={'white'}
+            text={toDo.toDo}
+            toDos={toDos}
+            setToDos={setToDos}
+            status={toDo.status}
+          />
+        ))}
     </section>
   );
 }
