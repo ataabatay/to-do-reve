@@ -6,8 +6,8 @@ import Placeholder from './components/Placeholder';
 
 function App() {
   const [toDos, setToDos] = useState(() => {
-    const items = localStorage.getItem('To Dos')
-    return JSON.parse(items)
+    const items = localStorage.getItem('To Dos');
+    return JSON.parse(items);
   });
 
   useEffect(() => {
@@ -18,7 +18,7 @@ function App() {
     <>
       <main className="bg-black text-white min-h-screen flex flex-col p-20">
         <AddToDo toDos={toDos} setToDos={setToDos} />
-        {toDos.length > 0 ? (
+        {toDos.length && toDos.length > 0 ? (
           <>
             <ActiveToDoListView toDos={toDos} setToDos={setToDos} />
             <InactiveToDoListView toDos={toDos} setToDos={setToDos} />
