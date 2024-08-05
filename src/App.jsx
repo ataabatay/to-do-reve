@@ -5,11 +5,14 @@ import { useEffect, useState } from 'react';
 import Placeholder from './components/Placeholder';
 
 function App() {
-  // const [toDos, setToDos] = useState(() => {
-  //   const items = localStorage.getItem('To Dos');
-  //   return JSON.parse(items);
-  // });
-  const [toDos, setToDos] = useState([]);
+  const [toDos, setToDos] = useState(() => {
+    const items = localStorage.getItem('To Dos');
+    if (items) {
+      return JSON.parse(items);
+    } else {
+      return [];
+    }
+  });
 
   useEffect(() => {
     localStorage.setItem('To Dos', JSON.stringify(toDos));
